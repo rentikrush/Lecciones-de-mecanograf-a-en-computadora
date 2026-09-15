@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf5" />
+    <meta
+      name="description"
+      content="Tecla a Tecla: un espacio hecho especialmente para Lola para aprender a escribir rápido en la computadora."
+    />
+    <title>Tecla a Tecla · Para Lola</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#practica" aria-label="Tecla a Tecla, volver a la práctica">
+          <span class="brand-mark" aria-hidden="true">⌨</span>
+          <span class="brand-copy">
+            <strong>Tecla a Tecla</strong>
+            <small>práctica de teclado en español</small>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <span class="session-pill" id="session-pill">0 lecciones completas</span>
+          <button class="text-button" id="reset-progress" type="button">Reiniciar progreso</button>
+        </div>
+      </header>
+
+      <main class="app-grid" id="practica">
+        <section class="intro-column" aria-labelledby="page-title">
+          <div class="personal-note" aria-label="Un mensaje especial para Lola">
+            <span class="personal-note-heart" aria-hidden="true">♥</span>
+            <span class="personal-note-copy">
+              <strong>Lola, acá vas a aprender a escribir rápido en la computadora ❤️</strong>
+              <small>Hice este espacio especialmente para vos.</small>
+            </span>
+          </div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Un minuto a la vez</p>
+          <h1 id="page-title">Aprendé a escribir <em>con confianza.</em></h1>
+          <p class="lead">
+            Un rincón tranquilo para que tus manos encuentren el teclado. Practicá frases reales, mirá tu avance y celebrá cada pequeño progreso, Lola.
+          </p>
+
+          <div class="progress-card" aria-label="Resumen de tu progreso">
+            <div class="progress-card-top">
+              <span>Tu recorrido</span>
+              <strong id="progress-label">0 de 3</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+            <p id="progress-note">Elegí una lección y empezá a practicar.</p>
+          </div>
+
+          <ul class="practice-values" aria-label="Claves para aprender">
+            <li><span class="value-icon coral">01</span><span><strong>Sin apuro</strong><small>La precisión viene antes que la velocidad.</small></span></li>
+            <li><span class="value-icon gold">02</span><span><strong>Con intención</strong><small>Frases cortas para que el ejercicio tenga sentido.</small></span></li>
+            <li><span class="value-icon teal">03</span><span><strong>A tu ritmo</strong><small>Volvé cuando quieras y seguí desde donde quedaste.</small></span></li>
+          </ul>
+
+          <aside class="coach-note">
+            <span class="coach-quote" aria-hidden="true">“</span>
+            <p>Lola, tu teclado no tiene que sentirse perfecto hoy. Solo un poquito más familiar que ayer.</p>
+            <span class="coach-signature">— hecho con cariño para vos</span>
+          </aside>
+        </section>
+
+        <section class="practice-card" aria-labelledby="practice-title">
+          <div class="practice-header">
+            <div>
+              <p class="section-kicker" id="lesson-level">Nivel 1 · Calentamiento</p>
+              <h2 id="practice-title">Encontrá tu ritmo</h2>
+            </div>
+            <div class="lesson-counter" id="lesson-counter">1 <span>/ 3</span></div>
+          </div>
+
+          <div class="lesson-tabs" role="tablist" aria-label="Elegí una lección">
+            <button class="lesson-tab is-active" type="button" role="tab" aria-selected="true" data-lesson="base">01 <span>Ritmo</span></button>
+            <button class="lesson-tab" type="button" role="tab" aria-selected="false" data-lesson="words">02 <span>Palabras</span></button>
+            <button class="lesson-tab" type="button" role="tab" aria-selected="false" data-lesson="accent">03 <span>Con acentos</span></button>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-meta"><span>Escribí esta frase</span><span id="prompt-status" aria-live="polite">Lista para empezar</span></div>
+            <p class="prompt-text" id="prompt-text" aria-label="Frase para copiar"></p>
+          </div>
+
+          <label class="typing-label" for="typing-input">Tu texto</label>
+          <div class="typing-area">
+            <textarea id="typing-input" rows="3" spellcheck="false" autocomplete="off" autocapitalize="off" disabled placeholder="Hacé clic en “Comenzar práctica” y empezá a escribir…"></textarea>
+            <button class="primary-button" id="start-button" type="button">Comenzar práctica <span aria-hidden="true">↵</span></button>
+          </div>
+
+          <div class="stats-grid" aria-label="Métricas de la práctica">
+            <div class="stat-card"><span>Tiempo</span><strong id="time-stat">00:00</strong><small>en esta ronda</small></div>
+            <div class="stat-card"><span>Precisión</span><strong id="accuracy-stat">—</strong><small>caracteres correctos</small></div>
+            <div class="stat-card"><span>Velocidad</span><strong id="speed-stat">—</strong><small>palabras por minuto</small></div>
+            <div class="stat-card"><span>Errores</span><strong id="errors-stat">0</strong><small>para revisar</small></div>
+          </div>
+
+          <div class="keyboard-section">
+            <div class="keyboard-heading"><span>Teclado guía</span><span class="next-key-label">Próxima tecla <strong id="next-key">—</strong></span></div>
+            <div class="keyboard" aria-label="Teclado visual de referencia">
+              <div class="keyboard-row">
+                <span class="key" data-key="q">Q</span><span class="key" data-key="w">W</span><span class="key" data-key="e">E</span><span class="key" data-key="r">R</span><span class="key" data-key="t">T</span><span class="key" data-key="y">Y</span><span class="key" data-key="u">U</span><span class="key" data-key="i">I</span><span class="key" data-key="o">O</span><span class="key" data-key="p">P</span>
+              </div>
+              <div class="keyboard-row keyboard-row-offset">
+                <span class="key" data-key="a">A</span><span class="key" data-key="s">S</span><span class="key" data-key="d">D</span><span class="key" data-key="f">F</span><span class="key" data-key="g">G</span><span class="key" data-key="h">H</span><span class="key" data-key="j">J</span><span class="key" data-key="k">K</span><span class="key" data-key="l">L</span><span class="key" data-key="ñ">Ñ</span>
+              </div>
+              <div class="keyboard-row keyboard-row-offset-wide">
+                <span class="key key-wide" data-key="shift">⇧</span><span class="key" data-key="z">Z</span><span class="key" data-key="x">X</span><span class="key" data-key="c">C</span><span class="key" data-key="v">V</span><span class="key" data-key="b">B</span><span class="key" data-key="n">N</span><span class="key" data-key="m">M</span><span class="key" data-key=",">,</span><span class="key" data-key=".">.</span><span class="key key-wide" data-key="shift">⇧</span>
+              </div>
+              <div class="keyboard-row keyboard-row-bottom"><span class="key key-space" data-key="space">espacio</span></div>
+            </div>
+          </div>
+
+          <div class="practice-footer">
+            <p id="coach-message">Cuando estés lista, apoyá los dedos y dejá que la frase te guíe.</p>
+            <button class="next-button is-hidden" id="next-lesson" type="button">Siguiente lección <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+      </main>
+
+      <section class="method-strip" aria-labelledby="method-title">
+        <div class="method-intro"><p class="section-kicker">Un método amable</p><h2 id="method-title">La constancia hace el trabajo pesado.</h2></div>
+        <div class="method-list">
+          <article><span>01</span><h3>Mirada al frente</h3><p>Usá el teclado guía como referencia, no como examen.</p></article>
+          <article><span>02</span><h3>Respirá y seguí</h3><p>Si aparece un error, corregilo sin perder el ritmo.</p></article>
+          <article><span>03</span><h3>Repetí mañana</h3><p>Unos minutos frecuentes valen más que una tarde entera.</p></article>
+        </div>
+      </section>
+
+      <footer class="site-footer"><span>Tecla a Tecla</span><span>Hecho para aprender con calma · Argentina</span></footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
